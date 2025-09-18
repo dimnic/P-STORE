@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secure Sign Up - P-STORE</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <img class="image-gradient" src="gradient.png" alt="gradient" />
+  <div class="layer-blur"></div>
+  <div class="container">
+    <header>
+      <h1 data-aos="fade-down" data-aos-duration="1500" class="logo">PRIME<i><b>X</b></i></h1>
+    </header>
+
+    <main>
+      <div class="form-box" data-aos="fade-up" data-aos-duration="2000">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+          <input type="text" id="name" placeholder="Full Name" required />
+          <div class="feedback" id="name-feedback"></div>
+
+          <input type="email" id="email" placeholder="Email Address" required />
+          <div class="feedback" id="email-feedback"></div>
+
+          <input type="password" id="password" placeholder="Password" required />
+          <div class="strength-meter"><div class="strength-bar" id="strength-bar"></div></div>
+          <div class="feedback" id="password-feedback"></div>
+
+          <input type="password" id="confirm-password" placeholder="Confirm Password" required />
+          <div class="feedback" id="confirm-feedback"></div>
+
+          <button type="submit" class="btn-signup"><a href="index.html">Create Account</a></button>
+        </form>
+        <p class="login-link">Already have an account? <a href="index.html">Sign In</a></p>
+        <div id="success-message" class="success-message"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const form = document.getElementById("signup-form");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirm-password");
+
+    const nameFeedback = document.getElementById("name-feedback");
+    const emailFeedback = document.getElementById("email-feedback");
+    const passwordFeedback = document.getElementById("password-feedback");
+    const confirmFeedback = document.getElementById("confirm-feedback");
+    const strengthBar = document.getElementById("strength-bar");
+    const successMessage = document.getElementById("success-message");
+
+    function checkPasswordStrength(password) {
+      let strength = 0;
+      if (password.length >= 6) strength++;
+      if (/[A-Z]/.test(password)) strength++;
+      if (/[0-9]/.test(password)) strength++;
+      if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+      const colors = ["#ff4d4d", "#ffa500", "#ffff66", "#66ff66"];
+      strengthBar.style.width = (strength * 25) + "%";
+      strengthBar.style.backgroundColor = colors[strength - 1] || "#333";
+    }
+
+    passwordInput.addEventListener("input", () => {
+      checkPasswordStrength(passwordInput.value);
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let errors = [];
+
+      // Reset feedback
+      nameFeedback.textContent = "";
+      emailFeedback.textContent = "";
+      passwordFeedback.textContent = "";
+      confirmFeedback.textContent = "";
+      successMessage.textContent = "";
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+      const confirmPassword = confirmInput.value;
+
+      if (name.length < 3) {
+        nameFeedback.textContent = "Name must be at least 3 characters.";
+        errors.push("name");
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        emailFeedback.textContent = "Enter a valid email address.";
+        errors.push("email");
+      }
+
+      if (password.length < 6) {
+        passwordFeedback.textContent = "Password must be at least 6 characters.";
+        errors.push("password");
+      } else if (!/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+        passwordFeedback.textContent = "Include uppercase letters and numbers.";
+        errors.push("password");
+      }
+
+      if (password !== confirmPassword) {
+        confirmFeedback.textContent = "Passwords do not match.";
+        errors.push("confirm");
+      }
+
+      if (errors.length === 0) {
+        successMessage.textContent = "✅ Signup successful! Welcome aboard.";
+        form.reset();
+        strengthBar.style.width = "0%";
+      }
+    });
+  </script>
+</body>
+</html>
