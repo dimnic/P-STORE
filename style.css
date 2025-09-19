@@ -39,7 +39,7 @@ body{
     margin:  0 auto;
     padding: 0 2rem;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 header{
@@ -47,7 +47,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    flex-wrap: wrap;
 }
 header h1{
     font-size: 3rem;
@@ -84,7 +84,7 @@ nav a:hover{
     font-weight: 500;
     transition: background-color 0.2s ease;
     cursor: pointer;
-    z-index:999;
+    z-index:1000;
     
 }
 .btn-signing:hover {
@@ -213,7 +213,12 @@ margin-top:  2rem;
         font-size: 2rem;
     }
     .btn-signing{
-        padding: 0.6rem 1.5rem;
+        
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        width: 100%; /* ✅ Full width if needed */
+    
     }
     .content{
         margin-top: 25rem;
