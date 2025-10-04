@@ -29,7 +29,7 @@ html, body {
 
 /* Container */
 .container {
-    max-width: 1400px; /* Increased for larger screens */
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -41,12 +41,12 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 1400px; /* Constrain header width */
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .logo {
-    font-size: clamp(2rem, 3vw, 2.8rem); /* Scales with viewport */
+    font-size: clamp(2rem, 3vw, 2.8rem);
     font-weight: 500;
     letter-spacing: 0.05em;
 }
@@ -58,8 +58,8 @@ header {
 
 nav {
     display: flex;
-    gap: clamp(1.5rem, 2vw, 2.5rem); /* Responsive gap */
-    max-width: 600px; /* Prevent nav from stretching too wide */
+    gap: clamp(1.5rem, 2vw, 2.5rem);
+    max-width: 600px;
 }
 
 nav a {
@@ -103,12 +103,12 @@ main {
 }
 
 .content {
-    max-width: 700px; /* Slightly wider for balance */
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .tag-box {
-    width: clamp(180px, 15vw, 220px); /* Scales with viewport */
+    width: clamp(180px, 15vw, 220px);
     height: 40px;
     border-radius: 50px;
     background: linear-gradient(90deg, #656565, #7f42a7, #6600c5, #5300a0, #757575);
@@ -140,7 +140,7 @@ main {
 }
 
 .content h1 {
-    font-size: clamp(2.5rem, 4vw, 4rem); /* Scales for larger screens */
+    font-size: clamp(2.5rem, 4vw, 4rem);
     font-weight: 600;
     letter-spacing: 0.05em;
     margin: 2rem 0;
@@ -190,7 +190,7 @@ main {
 /* AI Section */
 .ai-section {
     padding: 4rem 0;
-    max-width: 1400px; /* Constrain for large screens */
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -200,14 +200,7 @@ main {
     margin-bottom: 2rem;
 }
 
-.robot-3d {
-    max-width: 50vw; /* Limit size on large screens */
-    max-height: 600px;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-}
+/* Removed .robot-3d styling since <spline-viewer> is gone */
 
 /* Chat Box */
 .chat-box {
@@ -217,7 +210,7 @@ main {
     padding: 1rem;
     overflow-y: auto;
     backdrop-filter: blur(5px);
-    max-width: 800px; /* Constrain for large screens */
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -240,7 +233,7 @@ main {
 /* Services and Testimonials */
 .section-padding {
     padding: 4rem 0;
-    max-width: 1400px; /* Constrain for large screens */
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -304,13 +297,10 @@ main {
 /* Responsive Design */
 @media (min-width: 1400px) {
     .container {
-        max-width: 1600px; /* Allow slightly wider containers for 4K screens */
+        max-width: 1600px;
     }
     .content {
-        max-width: 800px; /* Slightly wider for balance */
-    }
-    .robot-3d {
-        max-width: 40vw; /* Further constrain for very large screens */
+        max-width: 800px;
     }
     .chat-box {
         max-width: 900px;
@@ -323,9 +313,6 @@ main {
     }
     .ai {
         font-size: clamp(1.8rem, 3vw, 2.5rem);
-    }
-    .robot-3d {
-        max-width: 60vw;
     }
 }
 
@@ -357,9 +344,6 @@ main {
     .tag-box {
         width: 150px;
         margin: 0 auto;
-    }
-    .robot-3d {
-        scale: 0.7;
     }
     .ai {
         font-size: clamp(1.5rem, 2.5vw, 2rem);
