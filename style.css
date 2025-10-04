@@ -342,7 +342,7 @@ main {
         font-size: clamp(0.9rem, 1.2vw, 1rem);
     }
     .tag-box {
-        width: 150px;
+        width: auto;
         margin: 0 auto;
     }
     .ai {
@@ -366,3 +366,4 @@ main {
         font-size: clamp(1.2rem, 2vw, 1.8rem);
     }
 }
+
