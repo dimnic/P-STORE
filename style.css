@@ -108,7 +108,7 @@ main {
 }
 
 .tag-box {
-    width: clamp(180px, 15vw, 220px);
+    width: clamp(200px, 30vw, 300px);
     height: 40px;
     border-radius: 50px;
     background: linear-gradient(90deg, #656565, #7f42a7, #6600c5, #5300a0, #757575);
@@ -123,9 +123,9 @@ main {
 }
 
 .tag-box .tag {
-    position: absolute;
-    inset: 3px;
-    background-color: #121212;
+    position: relative;
+    inset: 2px;
+    background-color:transparent ;
     border-radius: 50px;
     display: flex;
     align-items: center;
